@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập Coffee Quy Hòa</title>
     <link rel="stylesheet" href="style.css">
+    <script src="login.js"></script>
+    <script>
+        const {
+            initLogin
+        } = require('./login.js');
+        initLogin();
+    </script>
 </head>
 
 <body>
@@ -60,60 +67,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Lấy các đối tượng DOM
-    var modal = document.getElementById("myModal");
-    var closeBtn = document.getElementById("closeBtn");
-    var loginForm = document.querySelector(".login-box form");
-
-    // Lấy các element để hiển thị thông báo
-    var modalMessage = document.getElementById("modalMessage");
-    var modalRole = document.getElementById("modalRole");
-
-    // 1. Khi người dùng nhấp vào nút "Đăng nhập"
-    loginForm.addEventListener("submit", function(event) {
-        // Ngăn form gửi đi theo cách truyền thống
-        event.preventDefault();
-
-        // Lấy dữ liệu từ form
-        var formData = new FormData(loginForm);
-
-        // Gửi dữ liệu bằng AJAX (fetch)
-        fetch("login_handler.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json()) // Chuyển kết quả sang JSON
-            .then(data => {
-                // 2. Xử lý kết quả trả về từ login_handler.php
-                if (data.success) {
-                    // Nếu đăng nhập thành công
-                    modalMessage.textContent = data.message;
-                    modalRole.textContent = "Quyền: " + data.role; // Hiển thị quyền
-                    modal.style.display = "block"; // Hiển thị bảng thông báo
-                } else {
-                    // Nếu đăng nhập thất bại
-                    alert(data.message); // Hiển thị thông báo lỗi đơn giản
-                }
-            })
-            .catch(error => {
-                console.error('Lỗi:', error);
-                alert("Có lỗi xảy ra, vui lòng thử lại.");
-            });
-    });
-
-    // 3. Khi người dùng nhấp nút "Đóng"
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // 4. Khi người dùng nhấp ra ngoài bảng thông báo
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 
 </html>
