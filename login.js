@@ -1,22 +1,16 @@
 // login.js
-
 function initLogin() {
-    // Lấy các đối tượng DOM
     var modal = document.getElementById("myModal");
     var closeBtn = document.getElementById("closeBtn");
     var loginForm = document.querySelector(".login-box form");
     var modalMessage = document.getElementById("modalMessage");
     var modalRole = document.getElementById("modalRole");
 
-    if (!loginForm) return; // Bảo vệ nếu không tìm thấy form
+    if (!loginForm) return;
 
-    // 1. Xử lý submit form
     loginForm.addEventListener("submit", function (event) {
         event.preventDefault();
-
         var formData = new FormData(loginForm);
-        // Chuyển FormData thành object đơn giản để giả lập trong test dễ hơn (tuỳ chọn)
-        // Ở đây giữ nguyên logic fetch của bạn
 
         fetch("login_handler.php", {
             method: "POST",
@@ -38,14 +32,12 @@ function initLogin() {
             });
     });
 
-    // 2. Xử lý nút đóng
     if (closeBtn) {
         closeBtn.onclick = function () {
             modal.style.display = "none";
         }
     }
 
-    // 3. Xử lý click ngoài modal
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -53,5 +45,8 @@ function initLogin() {
     }
 }
 
-// Export hàm để test gọi được
-module.exports = { initLogin };
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = { initLogin };
+} else {
+    document.addEventListener('DOMContentLoaded', initLogin);
+}

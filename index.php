@@ -7,12 +7,6 @@
     <title>Đăng nhập Coffee Quy Hòa</title>
     <link rel="stylesheet" href="style.css">
     <script src="login.js"></script>
-    <script>
-        const {
-            initLogin
-        } = require('./login.js');
-        initLogin();
-    </script>
 </head>
 
 <body>
@@ -45,7 +39,7 @@
 
                     <div class="button-group">
                         <button type="submit" class="btn btn-login">Đăng nhập</button>
-                        <a href="/dang-ky" class="btn btn-register">Đăng Ký</a>
+                        <a href="register.php" class="btn btn-register">Đăng Ký</a>
                     </div>
 
                 </form>

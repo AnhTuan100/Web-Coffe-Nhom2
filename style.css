@@ -104,8 +104,12 @@ html {
     align-items: center;
 }
 
+/* style.css */
+.btn-register {
+    margin-left: auto;
+}
 
-.btn btn-register {
+.btn.btn-register {
     margin-left: auto;
 }
 
