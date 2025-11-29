@@ -17,7 +17,7 @@
                 <h2>Coffee Quy Hòa</h2>
 
                 <?php
-                // (MỚI) Hiển thị thông báo lỗi nếu có
+                // Hiển thị thông báo lỗi nếu có
                 if (isset($_GET['error'])) {
                     echo '<p style="color: red; text-align: center;">' . htmlspecialchars($_GET['error']) . '</p>';
                 }

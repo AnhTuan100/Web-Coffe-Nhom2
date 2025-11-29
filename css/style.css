@@ -4,11 +4,7 @@ html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    /* Thay bằng font bạn muốn */
 
-    /* QUAN TRỌNG: Thay 'your-coffee-shop-image.jpg' 
-      bằng đường dẫn tới ảnh nền của bạn 
-    */
     background-image: url('../image/an-image-of-an-outdoor-cafe-at-night-at-a_2497979_wh860.png');
     background-size: cover;
     background-position: center;
@@ -54,7 +50,6 @@ html {
     text-align: left;
     /* Căn trái */
     margin-bottom: 30px;
-    /* Giống như TransparentLabel bạn hỏi trước */
     background: transparent;
 }
 
@@ -124,7 +119,6 @@ html {
     border: none;
     cursor: pointer;
     padding: 10px 0;
-    /* Thêm chút đệm */
 }
 
 .modal {

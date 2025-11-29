@@ -1,7 +1,3 @@
-<?php
-// Tên file: register.php
-// Đảm bảo PHP có thể xử lý việc nhúng file JS và CSS
-?>
 <!DOCTYPE html>
 <html lang="vi">
 

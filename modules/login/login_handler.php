@@ -1,8 +1,7 @@
 <?php
-// modules/Login/login_handler.php
 session_start();
 
-// 1. Kết nối CSDL (Kiểm tra kỹ đường dẫn này)
+// 1. Kết nối CSDL 
 require_once '../../include/ketnoi.php';
 
 // Kiểm tra xem có phải gửi từ Form không
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // 2. Chuẩn bị câu lệnh SQL
-    // Chọn đúng các cột bạn cần dùng
     $sql = "SELECT id, ten_dang_nhap, mat_khau, role FROM nhan_vien WHERE ten_dang_nhap = ?";
 
     if ($stmt = $conn->prepare($sql)) {
@@ -27,12 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // 3. Kiểm tra xem có tìm thấy tài khoản không
             if ($stmt->num_rows == 1) {
                 // Bind kết quả vào các biến để sử dụng
-                // Lưu ý: Thứ tự biến phải khớp với thứ tự trong câu SELECT ở trên
                 $stmt->bind_result($id, $ten_dang_nhap, $hashed_password, $role);
                 $stmt->fetch();
 
                 // 4. Kiểm tra mật khẩu
-                // Lưu ý: Database phải lưu mật khẩu đã mã hóa bằng password_hash()
                 if ($password == $hashed_password || password_verify($password, $hashed_password)) {
 
                     // --- ĐĂNG NHẬP THÀNH CÔNG ---
@@ -45,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Điều hướng phân quyền
                     if ($role === 'admin') {
-                        // Chuyển hướng đến trang Admin (Staff)
+                        // Chuyển hướng đến trang Admin 
                         header("Location:  ../menu/Menu.php");
                     } else {
                         // Chuyển hướng đến trang Menu cho nhân viên

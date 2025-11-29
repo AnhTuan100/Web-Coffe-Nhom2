@@ -9,7 +9,6 @@ $response = [
 ];
 
 // 1. Kết nối cơ sở dữ liệu
-// Sử dụng file ketnoi.php đã được bạn cung cấp (sử dụng mysqli)
 require_once 'ketnoi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_stmt->close();
 
     // 4. Mã hóa mật khẩu (Bảo mật tối đa)
-    // Dùng PASSWORD_DEFAULT (sẽ tự động chọn thuật toán mã hóa mạnh nhất hiện tại)
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // 5. Thêm người dùng mới vào database (Mặc định Role là 'Khách hàng')
@@ -58,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['success'] = true;
         $response['message'] = 'Đăng ký tài khoản thành công! Bạn có thể đăng nhập ngay.';
     } else {
-        // Lỗi CSDL (thường ít xảy ra nếu code đúng)
+        // Lỗi CSDL 
         $response['message'] = 'Lỗi hệ thống khi đăng ký: ' . $conn->error;
     }
 

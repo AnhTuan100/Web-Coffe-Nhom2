@@ -3,7 +3,7 @@
 session_start();
 require_once '../../include/ketnoi.php';
 
-// 1. Hàm định dạng tiền (Dùng function_exists để tránh lỗi trùng lặp nếu include nhiều nơi)
+// 1. Hàm định dạng tiền 
 if (!function_exists('formatMoney')) {
     function formatMoney($number)
     {
@@ -13,8 +13,6 @@ if (!function_exists('formatMoney')) {
 }
 
 // 2. Lấy dữ liệu Bán hàng theo Ngày
-// Giả sử bảng hóa đơn là 'hoa_don', cột ngày là 'ngay_tao', tổng tiền là 'tong_tien'
-// Dùng hàm DATE() để cắt bỏ giờ phút giây, chỉ lấy ngày tháng năm
 $sql = "SELECT DATE(ngay_tao) as ngay_ban, SUM(tong_tien) as tong_ngay 
         FROM hoa_don 
         GROUP BY DATE(ngay_tao) 

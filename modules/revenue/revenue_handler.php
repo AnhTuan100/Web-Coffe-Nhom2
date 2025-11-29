@@ -3,7 +3,7 @@
 session_start();
 require_once '../../include/ketnoi.php';
 
-// --- 1. ĐỊNH NGHĨA HÀM (CHỈ VIẾT 1 LẦN) ---
+// --- 1. ĐỊNH NGHĨA HÀM  ---
 function formatMoney($number)
 {
     if ($number == 0 || $number == null) return "0";
@@ -13,7 +13,7 @@ function formatMoney($number)
 // Hàm lấy chi phí theo loại
 function getExpense($conn, $type)
 {
-    // Kiểm tra kết nối trước
+    // Kiểm tra kết nối 
     if (!$conn) return 0;
 
     $sql = "SELECT SUM(so_tien) as total FROM chi_phi WHERE loai_chi_phi = '$type'";

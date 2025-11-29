@@ -1,9 +1,9 @@
 <?php
 // Thông tin cấu hình cơ sở dữ liệu
-$servername = "localhost"; // Tên máy chủ (thường là localhost)
-$username = "root";        // Tên người dùng MySQL
-$password = "";            // Mật khẩu MySQL (để trống nếu không có)
-$dbname = "web_coffe_nhom2"; // Tên cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "web_coffe_nhom2";
 
 // Tạo kết nối
 $conn = new mysqli($servername, $username, $password, $dbname);

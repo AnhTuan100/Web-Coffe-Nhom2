@@ -52,7 +52,7 @@
                 $dbname = "web_coffe_nhom2";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
-                $conn->set_charset("utf8"); // Hiển thị tiếng Việt
+                $conn->set_charset("utf8");
 
                 // Kiểm tra kết nối
                 if ($conn->connect_error) {
