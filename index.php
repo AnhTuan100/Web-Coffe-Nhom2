@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập Coffee Quy Hòa</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="login.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="modules/Login/login.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                 }
                 ?>
 
-                <form action="login_handler.php" method="POST">
+                <form action="modules/Login/login_handler.php" method="POST">
 
                     <div class="input-group">
                         <label for="username">Tài khoản</label>
@@ -39,7 +39,7 @@
 
                     <div class="button-group">
                         <button type="submit" class="btn btn-login">Đăng nhập</button>
-                        <a href="register.php" class="btn btn-register">Đăng Ký</a>
+                        <a href="modules/Register/register.php" class="btn btn-register">Đăng Ký</a>
                     </div>
 
                 </form>
