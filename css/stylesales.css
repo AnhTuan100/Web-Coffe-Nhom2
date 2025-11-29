@@ -1,0 +1,171 @@
+/* --- 1. CẤU HÌNH CHUNG --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: #333;
+}
+
+/* --- 2. THANH MENU (NAVBAR) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    padding: 15px 20px;
+    background: white;
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-hamburger {
+    font-size: 26px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 16px;
+    transition: 0.3s;
+}
+
+/* Trạng thái đang chọn (Active) */
+.menu-items a.active {
+    background-color: #666;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu-items a:hover:not(.active) {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+
+.user-info {
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- 3. TIÊU ĐỀ TRANG --- */
+.page-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 25px 0;
+    position: relative;
+    color: #000;
+}
+
+.export-excel {
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.export-excel:hover {
+    text-decoration: underline;
+}
+
+/* --- 4. BẢNG DỮ LIỆU */
+.table-container {
+    width: 100%;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* -- HEADER BẢNG -- */
+thead tr {
+    background-color: #8d7b73;
+    color: white;
+    height: 50px;
+}
+
+th {
+    font-weight: normal;
+    border-right: 1px solid #dcdcdc;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+/* -- DÒNG DỮ LIỆU -- */
+tbody tr {
+    background-color: #bfbfbf;
+    color: #000;
+    height: 45px;
+    border-bottom: 2px solid white;
+}
+
+td {
+    vertical-align: middle;
+    border-right: 2px solid white;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+/* Cột 1: Ngày (Căn giữa) */
+td:nth-child(1) {
+    text-align: center;
+}
+
+/* Cột 2: Tổng tiền  */
+td:nth-child(2) {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 500;
+}
+
+/* Các cột còn lại */
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: left;
+}
+
+/* -- DÒNG TỔNG CỘNG (Footer) -- */
+tfoot tr {
+    background-color: #bfbfbf;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    border-top: 2px solid white;
+}
+
+tfoot td {
+    border-right: 2px solid white;
+}
+
+/* Chữ "Tổng" căn giữa */
+tfoot td:first-child {
+    text-align: center;
+}
+
+/* Số tiền tổng căn trái */
+tfoot td:nth-child(2) {
+    text-align: left;
+    padding-left: 20px;
+}

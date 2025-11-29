@@ -1,0 +1,161 @@
+/* --- GLOBAL RESET --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
+
+/* --- 1. HEADER NAVIGATION (Thanh menu) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    padding: 10px 20px;
+    background: white;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+/* Nút Active (Đang chọn) */
+.menu-items a.active {
+    background-color: #666;
+    color: white;
+    border-radius: 5px;
+}
+
+.user-info {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+}
+
+.icon-hamburger {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* --- 2. PAGE TITLE (Tiêu đề trang) --- */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    position: relative;
+    color: #333;
+}
+
+.export-excel {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.export-excel:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- 3. REVENUE TABLE (Bảng báo cáo) --- */
+.table-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Header Bảng (Màu nâu đậm) */
+thead tr {
+    background-color: #a18e86;
+    color: white;
+    height: 40px;
+}
+
+th {
+    font-weight: normal;
+    border: 1px solid white;
+    vertical-align: middle;
+}
+
+/* Cấu trúc các ô dữ liệu chung */
+td {
+    padding: 8px 15px;
+    border-right: 1px solid white;
+    height: 35px;
+    vertical-align: middle;
+}
+
+/* Cột 1: STT (Căn giữa) */
+td:nth-child(1) {
+    text-align: center;
+    width: 60px;
+}
+
+/* Cột 2: Khoản mục (Căn trái) */
+td:nth-child(2) {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Cột 3: Tiền (Căn phải) */
+td:nth-child(3) {
+    text-align: right;
+    width: 200px;
+}
+
+/* --- MÀU SẮC CÁC DÒNG (Theme Coffee) --- */
+
+/* Dòng Mục lớn (I, II, III) - Màu xám nâu đậm */
+.row-section {
+    background-color: #bcaaa4;
+    font-weight: bold;
+    color: black;
+}
+
+/* Dòng chi tiết (1, 2, 3) - Màu xám nhạt */
+.row-item {
+    background-color: #dcdcdc;
+    color: #333;
+}
+
+/* Đường kẻ trắng giữa các dòng */
+tbody tr {
+    border-bottom: 2px solid white;
+}
+
+/* Dòng Lợi Nhuận (Giống dòng mục lớn) */
+.row-profit {
+    background-color: #bcaaa4;
+    font-weight: bold;
+    color: black;
+}

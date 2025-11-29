@@ -9,7 +9,7 @@ html {
     /* QUAN TRỌNG: Thay 'your-coffee-shop-image.jpg' 
       bằng đường dẫn tới ảnh nền của bạn 
     */
-    background-image: url('ảnh/an-image-of-an-outdoor-cafe-at-night-at-a_2497979_wh860.png');
+    background-image: url('../image/an-image-of-an-outdoor-cafe-at-night-at-a_2497979_wh860.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

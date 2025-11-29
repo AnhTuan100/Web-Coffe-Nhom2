@@ -15,12 +15,13 @@
             <span class="menu-icon">&#9776;</span>
             <a href="#" class="nav-item active">Thực Đơn</a>
             <a href="../staff/staff.php" class="nav-item">Nhân viên</a>
-            <a href="#" class="nav-item">Doanh Thu</a>
-            <a href="#" class="nav-item">Bán Hàng</a>
+            <a href="../revenue/revenue.php" class="nav-item">Doanh Thu</a>
+            <a href="../sales/sales.php" class="nav-item">Bán Hàng</a>
         </div>
         <div class="user-info">
-            (Admin) Sơn Tùng - MTP
-            <span>&#128100;</span>
+            (<?php echo isset($_SESSION['role']) ? ucfirst($_SESSION['role']) : 'Admin'; ?>)
+            <?php echo isset($_SESSION['ten_nv']) ? $_SESSION['ten_nv'] : 'User'; ?>
+            👤
         </div>
     </div>
 
