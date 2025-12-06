@@ -26,7 +26,7 @@
     </div>
 
     <div class="toolbar">
-        <button class="btn" onclick="alert('Chức năng đang phát triển')">Thêm</button>
+        <a class="btn" href="them_menu.php">Thêm</a>
         <button class="btn" onclick="alert('Chức năng đang phát triển')">Sửa</button>
         <button class="btn" onclick="alert('Chức năng đang phát triển')">Xóa</button>
     </div>
