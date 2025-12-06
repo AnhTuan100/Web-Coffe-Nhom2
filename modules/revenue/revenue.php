@@ -1,7 +1,7 @@
 <?php
 // FILE: modules/Revenue/Revenue.php
 
-require_once 'revenue_handler.php';
+include 'revenue_handler.php';
 ?>
 <!DOCTYPE html>
 <html lang="vi">

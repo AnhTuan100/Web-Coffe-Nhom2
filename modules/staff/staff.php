@@ -26,7 +26,7 @@
     </div>
 
     <div class="toolbar">
-        <button class="btn">Thêm</button>
+        <a class="btn" href="them_staff.php">Thêm</a>
         <button class="btn">Sửa</button>
         <button class="btn">Xóa</button>
         <button class="btn">Phân Quyền</button>
@@ -47,17 +47,7 @@
             <tbody>
                 <?php
                 // 1. KẾT NỐI DATABASE
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "web_coffe_nhom2";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                $conn->set_charset("utf8");
-
-                if ($conn->connect_error) {
-                    die("<tr><td colspan='6'>Kết nối thất bại: " . $conn->connect_error . "</td></tr>");
-                }
+                require_once '../../include/ketnoi.php';
 
                 // 2. TRUY VẤN DỮ LIỆU NHÂN VIÊN
                 $sql = "SELECT * FROM nhan_vien";

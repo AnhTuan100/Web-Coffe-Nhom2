@@ -3,15 +3,7 @@
 $thong_bao = "";
 
 // Kết nối Database 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "web_coffe_nhom2";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
+require_once '../../include/ketnoi.php';
 
 // Xử lý khi người dùng nhấn nút "Lưu"
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Xử lý upload ảnh
     if (isset($_FILES['anh_dai_dien']) && $_FILES['anh_dai_dien']['error'] == 0) {
-        $target_dir = "uploads/";
+        $target_dir = "../../uploads/";
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
