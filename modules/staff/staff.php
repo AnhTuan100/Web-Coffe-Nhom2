@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản Lý Nhân Viên</title>
     <link rel="stylesheet" href="../../css/stylemenu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-
     <div class="header">
         <div class="nav-left">
             <span class="menu-icon">&#9776;</span>
@@ -19,44 +19,46 @@
             <a href="../sales/sales.php" class="nav-item">Bán Hàng</a>
         </div>
         <div class="user-info">
-            (<?php echo isset($_SESSION['role']) ? ucfirst($_SESSION['role']) : 'Admin'; ?>)
+            (<?php session_start();
+                echo isset($_SESSION['role']) ? ucfirst($_SESSION['role']) : 'Admin'; ?>)
             <?php echo isset($_SESSION['ten_nv']) ? $_SESSION['ten_nv'] : 'User'; ?>
             👤
         </div>
     </div>
 
     <div class="toolbar">
-        <a class="btn" href="them_staff.php">Thêm</a>
-        <button class="btn">Sửa</button>
-        <button class="btn">Xóa</button>
-        <a class="btn" href="phanquyen.php">Phân Quyền</a>
+        <a class="btn" href="them_staff.php" style="background: green; color: white;">+ Thêm</a>
+        <a class="btn" href="phanquyen.php" style="background: #007bff; color: white;">Phân Quyền</a>
     </div>
 
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th>Mã nhân viên</th>
+                    <th>Mã NV</th>
                     <th>Tên đăng nhập</th>
                     <th>Tên Nhân viên</th>
                     <th>Ngày sinh</th>
                     <th>Giới tính</th>
                     <th>Ca làm việc</th>
+                    <th style="text-align: center;">Chức năng</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                // 1. KẾT NỐI DATABASE
                 require_once '../../include/ketnoi.php';
 
-                // 2. TRUY VẤN DỮ LIỆU NHÂN VIÊN
+                // Lấy danh sách nhân viên
                 $sql = "SELECT * FROM nhan_vien";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        // Xử lý ngày sinh: Database lưu 2005-06-15 -> Hiển thị 15/06/2005
+                        // Xử lý hiển thị ngày sinh (VN)
                         $ngay_sinh_vn = date("d/m/Y", strtotime($row["ngay_sinh"]));
+
+                        // Lấy ID để sửa xóa (Ưu tiên cột id, nếu không có thì dùng ma_nv)
+                        $id = isset($row['id']) ? $row['id'] : $row['ma_nv'];
 
                         echo "<tr>";
                         echo "<td>" . $row["ma_nv"] . "</td>";
@@ -65,26 +67,45 @@
                         echo "<td>" . $ngay_sinh_vn . "</td>";
                         echo "<td>" . $row["gioi_tinh"] . "</td>";
                         echo "<td>" . $row["ca_lam_viec"] . "</td>";
+
+                        // Cột Chức năng: Sửa và Xóa
+                        echo "<td style='text-align: center;'>
+                                <a href='sua_staff.php?id=$id' class='btn-action btn-edit' title='Sửa'><i class='fa-solid fa-pen'></i></a>
+                                <a href='xoa_staff.php?id=$id' class='btn-action btn-delete' title='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa nhân viên: " . $row['ten_nv'] . " không?\");'><i class='fa-solid fa-trash'></i></a>
+                              </td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='6'>Chưa có nhân viên nào</td></tr>";
+                    echo "<tr><td colspan='7' style='text-align:center'>Chưa có nhân viên nào</td></tr>";
                 }
-
                 $conn->close();
                 ?>
             </tbody>
         </table>
     </div>
 
-    <div class="pagination">
-        <span class="page-btn">&lt;&lt;</span>
-        <span class="page-btn">&lt;</span>
-        <span>| Trang <span class="page-number">1</span> trên 7 trang |</span>
-        <span class="page-btn">&gt;</span>
-        <span class="page-btn">&gt;&gt;</span>
-    </div>
+    <style>
+        .btn-action {
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 4px;
+            display: inline-block;
+        }
 
+        .btn-edit {
+            background-color: #f0ad4e;
+        }
+
+        .btn-delete {
+            background-color: #d9534f;
+        }
+
+        .btn-action:hover {
+            opacity: 0.8;
+        }
+    </style>
 </body>
 
 </html>
