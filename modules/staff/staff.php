@@ -29,7 +29,7 @@
         <a class="btn" href="them_staff.php">Thêm</a>
         <button class="btn">Sửa</button>
         <button class="btn">Xóa</button>
-        <button class="btn">Phân Quyền</button>
+        <a class="btn" href="phanquyen.php">Phân Quyền</a>
     </div>
 
     <div class="table-container">
